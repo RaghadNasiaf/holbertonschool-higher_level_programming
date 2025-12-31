@@ -1,30 +1,11 @@
 #!/usr/bin/python3
-"""
-This module provides a function to divide all elements of a matrix.
-"""
+"""Module for matrix division"""
 
 
 def matrix_divided(matrix, div):
-    """
-    Divides all elements of a matrix by a divisor.
-
-    Args:
-        matrix: A list of lists of integers or floats.
-        div: The number to divide by.
-
-    Returns:
-        A new matrix with the results rounded to 2 decimal places.
-
-    Raises:
-        TypeError: If matrix is not a list of lists of integers/floats.
-        TypeError: If each row of the matrix does not have the same size.
-        TypeError: If div is not a number.
-        ZeroDivisionError: If div is 0.
-    """
-    msg = "matrix must be a matrix (list of lists) of integers/floats"
-
-    if not isinstance(matrix, list) or not matrix:
-        raise TypeError(msg)
+    """Divides all elements of a matrix by div"""
+    if not isinstance(matrix, list) or len(matrix) == 0 or not matrix[0]:
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
@@ -32,18 +13,14 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    row_size = None
+    row_len = len(matrix[0])
     for row in matrix:
-        if not isinstance(row, list) or not row:
-            raise TypeError(msg)
-
-        if row_size is None:
-            row_size = len(row)
-        elif len(row) != row_size:
+        if not isinstance(row, list):
+            raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        if len(row) != row_len:
             raise TypeError("Each row of the matrix must have the same size")
+        for x in row:
+            if not isinstance(x, (int, float)):
+                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
-        for element in row:
-            if not isinstance(element, (int, float)):
-                raise TypeError(msg)
-
-    return [[round(item / div, 2) for item in row] for row in matrix]
+    return [[round(x / div, 2) for x in row] for row in matrix]
