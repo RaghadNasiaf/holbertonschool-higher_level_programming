@@ -1,0 +1,40 @@
+The ``2-matrix_divided`` module
+================================
+
+This module provides one function, ``matrix_divided(matrix, div)``.
+
+Usage:
+------
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Edge Cases (Errors):
+--------------------
+
+1. Matrix is not a list of lists of integers/floats:
+    >>> matrix_divided([1, 2, 3], 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+2. Rows are not the same size:
+    >>> matrix_divided([[1, 2], [3, 4, 5]], 2)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+3. div is not a number:
+    >>> matrix_divided([[1, 2], [3, 4]], "hello")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+4. div is zero:
+    >>> matrix_divided([[1, 2], [3, 4]], 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+5. Matrix contains non-numbers:
+    >>> matrix_divided([[1, "2"], [3, 4]], 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
