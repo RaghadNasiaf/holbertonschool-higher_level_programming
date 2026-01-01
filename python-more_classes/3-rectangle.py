@@ -13,22 +13,18 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         """
         Initializes a new Rectangle instance.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
         """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Retrieves the width of the rectangle."""
+        """Retrieves width."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Sets the width of the rectangle with validation."""
+        """Sets width."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -37,12 +33,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieves the height of the rectangle."""
+        """Retrieves height."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Sets the height of the rectangle with validation."""
+        """Sets height."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -50,23 +46,18 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Returns the rectangle area."""
+        """Returns area."""
         return self.__width * self.__height
 
     def perimeter(self):
-        """Returns the rectangle perimeter."""
+        """Returns perimeter."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return (self.__width * 2) + (self.__height * 2)
 
     def __str__(self):
-        """Returns a string representation of the rectangle using #."""
+        """Returns string representation."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        
-        rect_str = ""
-        for i in range(self.__height):
-            rect_str += "#" * self.__width
-            if i != self.__height - 1:
-                rect_str += "\n"
-        return rect_str
+        rows = ["#" * self.__width for i in range(self.__height)]
+        return "\n".join(rows)
