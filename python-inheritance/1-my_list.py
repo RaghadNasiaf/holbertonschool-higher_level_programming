@@ -1,22 +1,19 @@
 #!/usr/bin/python3
 """
-This module contains a specialized class for handling list operations.
-The primary objective is to demonstrate how to create a subclass that
-extends the features of the standard built-in list data structure.
+Module documentation for MyList class.
+This module provides a class that inherits from list and adds sorting.
 """
 
 
 class MyList(list):
     """
-    MyList represents a custom version of the standard list class.
-    This subclass inherits all behaviors from the list class and adds
-    a unique method to show elements in an ascending sorted format.
+    Class documentation for MyList.
+    Inherits from list and provides a method to print sorted elements.
     """
 
     def print_sorted(self):
         """
-        Public instance method that prints the list in ascending order.
-        This operation ensures that the original sequence remains intact
-        by using a non-destructive sorting approach on the instance.
+        Method documentation for print_sorted.
+        Prints the list elements in ascending order.
         """
         print(sorted(self))
