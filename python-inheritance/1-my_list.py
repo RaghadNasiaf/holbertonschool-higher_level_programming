@@ -1,22 +1,22 @@
 #!/usr/bin/python3
 """
-This module contains a specialized list class named MyList.
-The purpose of this module is to demonstrate how to inherit from the
-built-in list class and add custom functionality to it.
+This module provides a specialized class for list manipulation.
+It contains the MyList class which extends the built-in list functionality
+by adding a method to display its elements in a sorted fashion.
 """
 
 
 class MyList(list):
     """
-    MyList is a subclass that inherits all properties from the list class.
-    It provides additional methods to manipulate and display list data,
-    specifically allowing for sorted output while maintaining the original.
+    MyList is a subclass that inherits all features from the Python list.
+    This class is intended to demonstrate how inheritance works in Python 3
+    by allowing the user to print a sorted version of the list easily.
     """
 
     def print_sorted(self):
         """
-        Public instance method that prints the list in ascending sorted order.
-        This method assumes that all elements in the list are integers.
-        It does not modify the original list instance itself.
+        This method prints the elements of the list in ascending sorted order.
+        It assumes that the list only contains integer elements to sort.
+        The original list remains unchanged after this operation is performed.
         """
         print(sorted(self))
