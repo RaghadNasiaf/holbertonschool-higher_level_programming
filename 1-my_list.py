@@ -1,16 +1,17 @@
 #!/usr/bin/python3
 """
-This module defines a class MyList that inherits from list.
+This module provides a class MyList that inherits from the list class.
 """
 
 
 class MyList(list):
     """
-    Class MyList inherits from list and adds a sorting print method.
+    MyList inherits from list and includes a method to print sorted elements.
     """
 
     def print_sorted(self):
         """
-        Method that prints the list in ascending sorted order.
+        Public instance method that prints the list, but sorted in
+        ascending order. All elements of the list are assumed to be integers.
         """
         print(sorted(self))
