@@ -13,6 +13,6 @@ class MyList(list):
     def print_sorted(self):
         """
         Public instance method that prints the list, but sorted in
-        ascending order. The original list is not modified.
+        ascending order.
         """
         print(sorted(self))
