@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module for BaseGeometry class with integer validation
+Module for BaseGeometry class
 """
 
 
