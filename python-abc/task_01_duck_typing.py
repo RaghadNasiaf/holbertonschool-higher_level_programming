@@ -21,39 +21,39 @@ class Shape(ABC):
 
 
 class Circle(Shape):
-    """Circle implementation."""
+    """Concrete class representing a Circle."""
 
     def __init__(self, radius):
-        """Initialize with radius."""
+        """Initialize Circle."""
         self.radius = radius
 
     def area(self):
-        """Return circle area."""
-        return math.pi * self.radius ** 2
+        """Return the area of the circle."""
+        return math.pi * (self.radius ** 2)
 
     def perimeter(self):
-        """Return circle perimeter."""
+        """Return the perimeter of the circle."""
         return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
-    """Rectangle implementation."""
+    """Concrete class representing a Rectangle."""
 
     def __init__(self, width, height):
-        """Initialize with width and height."""
+        """Initialize Rectangle."""
         self.width = width
         self.height = height
 
     def area(self):
-        """Return rectangle area."""
+        """Return the area of the rectangle."""
         return self.width * self.height
 
     def perimeter(self):
-        """Return rectangle perimeter."""
+        """Return the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    """Print area and perimeter using duck typing."""
+    """Print the area and perimeter using duck typing."""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
