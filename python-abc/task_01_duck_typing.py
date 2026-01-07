@@ -34,7 +34,7 @@ class Circle(Shape):
 
     def area(self):
         """Returns the area of the circle."""
-        return math.pi * self.radius ** 2
+        return math.pi * (self.radius ** 2)
 
     def perimeter(self):
         """Returns the perimeter of the circle."""
@@ -65,5 +65,5 @@ def shape_info(shape):
     Prints the area and perimeter of a shape using duck typing.
     """
     print("Area: {}".format(shape.area()))
-    
     print("Perimeter: {}".format(shape.perimeter()))
+    
