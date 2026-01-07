@@ -7,20 +7,17 @@ Contains class BaseGeometry
 
 class BaseGeometry:
     """
-    A class BaseGeometry with public instance methods
+    A class BaseGeometry
     """
     def area(self):
         """
-        Raises an Exception with the message area() is not implemented
+        Raises an Exception
         """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
-        Validates the value
-        Args:
-            name (str): name of the value
-            value (int): value to validate
+        Validates value
         """
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
