@@ -24,15 +24,15 @@ class Circle(Shape):
     """Circle implementation."""
 
     def __init__(self, radius):
-        """Init with radius."""
+        """Initialize with radius."""
         self.radius = radius
 
     def area(self):
-        """Circle area."""
+        """Return circle area."""
         return math.pi * self.radius ** 2
 
     def perimeter(self):
-        """Circle perimeter."""
+        """Return circle perimeter."""
         return 2 * math.pi * self.radius
 
 
@@ -40,20 +40,20 @@ class Rectangle(Shape):
     """Rectangle implementation."""
 
     def __init__(self, width, height):
-        """Init with width and height."""
+        """Initialize with width and height."""
         self.width = width
         self.height = height
 
     def area(self):
-        """Rectangle area."""
+        """Return rectangle area."""
         return self.width * self.height
 
     def perimeter(self):
-        """Rectangle perimeter."""
+        """Return rectangle perimeter."""
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    """Print shape info using duck typing."""
+    """Print area and perimeter using duck typing."""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
