@@ -1,0 +1,14 @@
+### 1. Differentiating HTTP and HTTPS
+- HTTP (Hypertext Transfer Protocol): Data is sent in plain text, making it vulnerable to eavesdropping.
+- HTTPS (HTTP Secure): Uses SSL/TLS encryption to protect data integrity and privacy.
+- Request: Method (GET, POST, etc.), Path, Headers, and Body.
+- Response: Status Code (200, 404, etc.), Headers, and Body.
+- GET: Retrieves data from a server.
+- POST: Submits data to be processed (e.g., creating a user).
+- PUT: Updates or replaces a resource.
+- DELETE: Removes a resource.
+- 200 OK: Request successful.
+- 201 Created: Resource created successfully.
+- 400 Bad Request: Client-side error in request format.
+- 404 Not Found: Resource could not be found.
+- 500 Internal Server Error: Unexpected server-side issue.
