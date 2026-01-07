@@ -11,52 +11,49 @@ class Shape(ABC):
 
     @abstractmethod
     def area(self):
-        """Calculate the area of the shape."""
+        """Abstract method for area."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Calculate the perimeter of the shape."""
+        """Abstract method for perimeter."""
         pass
 
 
 class Circle(Shape):
-    """Concrete class representing a Circle."""
+    """Circle implementation."""
 
     def __init__(self, radius):
-        """Initialize Circle with radius."""
+        """Initialize with radius."""
         self.radius = radius
 
     def area(self):
-        """Return the area of the circle using math.pi."""
-        return math.pi * self.radius ** 2
+        """Calculate area."""
+        return math.pi * (self.radius ** 2)
 
     def perimeter(self):
-        """Return the perimeter of the circle using math.pi."""
+        """Calculate perimeter."""
         return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
-    """Concrete class representing a Rectangle."""
+    """Rectangle implementation."""
 
     def __init__(self, width, height):
-        """Initialize Rectangle with width and height."""
+        """Initialize with width and height."""
         self.width = width
         self.height = height
 
     def area(self):
-        """Return the area of the rectangle."""
-        return self.width * self.height
+        """Return area as float."""
+        return float(self.width * self.height)
 
     def perimeter(self):
-        """Return the perimeter of the rectangle."""
-        return 2 * (self.width + self.height)
+        """Return perimeter as float."""
+        return float(2 * (self.width + self.height))
 
 
 def shape_info(shape):
-    """
-    Print the area and perimeter of a shape using duck typing.
-    Relies on the object having area and perimeter methods.
-    """
+    """Print area and perimeter using duck typing."""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
