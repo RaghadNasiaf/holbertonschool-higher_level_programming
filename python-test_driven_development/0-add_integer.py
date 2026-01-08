@@ -1,25 +1,25 @@
 #!/usr/bin/python3
 """
-This module provides a simple function to add two numbers.
-The function ensures that inputs are integers or floats,
-and casts them to integers before performing the addition.
-It is designed to demonstrate test-driven development practices.
+This is a module that provides a specific function for integer addition.
+The module is part of a higher-level programming project focused on 
+test-driven development practices. It ensures that all inputs are properly 
+validated and casted to integers before any arithmetic operation occurs.
 """
 
 
 def add_integer(a, b=98):
     """
-    Adds two integers or floats after casting them to integers.
+    This function adds two numbers together after validating their types.
+    It accepts both integers and floats as inputs, but it will always 
+    cast them to integers before performing the final addition.
+    If the inputs are not valid numbers, a TypeError will be raised.
 
     Args:
-        a: The first number, must be an int or float.
-        b: The second number, must be an int or float. Defaults to 98.
-
+        a: The first number to be added, must be an integer or a float.
+        b: The second number to be added, must be an integer or a float.
+    
     Returns:
-        The integer result of adding a and b.
-
-    Raises:
-        TypeError: If either a or b is not an integer or a float.
+        The integer result of the addition of a and b.
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
