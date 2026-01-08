@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module provides a function that prints a specific name format.
-The module validates if the inputs are strings before printing.
+This module provides a function that prints a formatted name.
+The module ensures both first and last names are strings.
 """
 
 
@@ -11,10 +11,10 @@ def say_my_name(first_name, last_name=""):
 
     Args:
         first_name: The first name as a string.
-        last_name: The last name as a string, defaults to empty.
+        last_name: The last name as a string.
 
     Raises:
-        TypeError: If first_name or last_name are not strings.
+        TypeError: If first_name or last_name is not a string.
     """
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
