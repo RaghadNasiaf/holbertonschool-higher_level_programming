@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module provides a function that divides all elements of a matrix.
-Each element is rounded to two decimal places.
+Each result is rounded to two decimal places.
 """
 
 
@@ -18,24 +18,33 @@ def matrix_divided(matrix, div):
     """
     msg = "matrix must be a matrix (list of lists) of integers/floats"
 
+    # 1. Check if matrix is a list of lists
     if not isinstance(matrix, list) or len(matrix) == 0:
         raise TypeError(msg)
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError(msg)
 
-    for row in matrix:
-        if not isinstance(row, list):
-            raise TypeError(msg)
-        for element in row:
-            if not isinstance(element, (int, float)):
-                raise TypeError(msg)
-
+    # 2. Check if all rows have the same size
     if not all(len(row) == len(matrix[0]) for row in matrix):
         raise TypeError("Each row of the matrix must have the same size")
 
+    # 3. Check if div is a number
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
 
+    # 4. Check if div is zero
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    # This handles float('inf') correctly as it will return 0.0
-    return [[round(x / div, 2) for x in row] for row in matrix]
+    # 5. Validate matrix elements are numbers and perform division
+    new_matrix = []
+    for row in matrix:
+        new_row = []
+        for x in row:
+            if not isinstance(x, (int, float)):
+                raise TypeError(msg)
+            # Handle float('inf') correctly: result rounded to 2 places
+            new_row.append(round(x / div, 2))
+        new_matrix.append(new_row)
+
+    return new_matrix
