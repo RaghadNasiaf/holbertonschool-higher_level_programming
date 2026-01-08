@@ -1,42 +1,34 @@
 #!/usr/bin/python3
 """
-Module for matrix division task.
-Provides a function that divides all elements of a matrix.
+This module contains a function that divides all elements of a matrix.
 """
 
 
 def matrix_divided(matrix, div):
     """
-    Divides all elements of a matrix by a divisor.
+    Divides all elements of a matrix by div.
 
     Args:
         matrix: A list of lists of integers or floats.
-        div: A number (integer or float) to divide the matrix elements.
+        div: A number (integer or float) to divide the matrix by.
 
     Returns:
-        A new matrix with results rounded to 2 decimal places.
-
-    Raises:
-        TypeError: If matrix is not a list of lists of integers/floats.
-        TypeError: If rows of matrix are not the same size.
-        TypeError: If div is not a number.
-        ZeroDivisionError: If div is 0.
+        A new matrix with the results of the division rounded to 2 decimal places.
     """
     msg = "matrix must be a matrix (list of lists) of integers/floats"
 
-    if not isinstance(matrix, list) or not matrix or not matrix[0]:
+    if not isinstance(matrix, list) or not matrix:
         raise TypeError(msg)
 
-    row_size = len(matrix[0])
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError(msg)
+
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
 
     for row in matrix:
-        if not isinstance(row, list):
+        if not all(isinstance(x, (int, float)) for x in row):
             raise TypeError(msg)
-        if len(row) != row_size:
-            raise TypeError("Each row of the matrix must have the same size")
-        for element in row:
-            if not isinstance(element, (int, float)):
-                raise TypeError(msg)
 
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
@@ -44,4 +36,5 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    return [[round(x / div, 2) for x in row] for row in matrix]
+    # The actual division logic with handling for infinity
+    return [[round(float(x) / div, 2) for x in row] for row in matrix]
