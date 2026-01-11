@@ -1,23 +1,24 @@
 # Basics of HTTP/HTTPS
 
-## 1. Differences between HTTP and HTTPS
-- **Security:** HTTP sends data in plain text, making it vulnerable to eavesdropping. HTTPS uses SSL/TLS encryption to protect data.
-- **Port:** HTTP typically uses port 80, while HTTPS uses port 443.
-- **Trust:** HTTPS requires a Digital Certificate to verify the identity of the web server.
+## 1. Differentiating HTTP and HTTPS
+- HTTP does not encrypt its data, which means that anyone eavesdropping on the communication can see the content.
+- HTTPS adds a layer of encryption using SSL/TLS, making the content unintelligible to eavesdroppers.
+- The "s" in "https" stands for "secure".
 
-## 2. HTTP Request/Response Structure
-- **Request:** Includes a Request Line (Method, Path, Version), Headers (Metadata), and an optional Body (Data).
-- **Response:** Includes a Status Line (Version, Status Code, Message), Headers, and a Body (Content).
+## 2. Understanding HTTP Structure
+- **Request:** Includes a Method (GET, POST), Path, Version, Headers, and an optional Body.
+- **Response:** Includes a Status Line (Version, Status Code like 200 OK), Headers, and a Body.
 
 ## 3. Common HTTP Methods
-- **GET:** Retrieves data from a server (e.g., fetching a web page).
-- **POST:** Submits new data to be processed (e.g., submitting a form).
-- **PUT:** Updates an existing resource entirely.
+- **GET:** Retrieves data; Use case: Fetching a web page or data from an API.
+- **POST:** Submits new data to be processed.
+- **PUT:** Updates an existing resource.
 - **DELETE:** Removes a specific resource.
 
 ## 4. Common Status Codes
-- **200 OK:** The request was successful.
-- **201 Created:** A new resource was successfully created.
-- **400 Bad Request:** The server cannot process the request due to client error.
-- **404 Not Found:** The requested resource could not be found.
-- **500 Internal Server Error:** The server encountered an unexpected condition.
+Status codes are grouped by their first digit:
+- **1xx:** Informational.
+- **2xx:** Successful (e.g., 200 OK).
+- **3xx:** Redirection.
+- **4xx:** Client errors (e.g., 404 Not Found: When a requested resource isn't available).
+- **5xx:** Server errors (e.g., 500 Internal Server Error).
