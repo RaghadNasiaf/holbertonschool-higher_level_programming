@@ -1,23 +1,24 @@
 # Basics of HTTP/HTTPS
 
-## 1. Differences between HTTP and HTTPS
-- **Security:** HTTP sends data in plain text, making it vulnerable to eavesdropping. HTTPS uses SSL/TLS encryption to protect data.
-- **Port:** HTTP typically uses port 80, while HTTPS uses port 443.
-- **Trust:** HTTPS requires a Digital Certificate to verify the identity of the web server.
+## 1. Differentiating HTTP and HTTPS
+- **HTTP:** Does not encrypt data; anyone eavesdropping can see the content in plain text.
+- **HTTPS:** Adds a layer of security using SSL/TLS encryption, making content unintelligible to eavesdroppers.
+- **The "s":** In HTTPS, the "s" stands for "secure".
 
-## 2. HTTP Request/Response Structure
-- **Request:** Includes a Request Line (Method, Path, Version), Headers (Metadata), and an optional Body (Data).
-- **Response:** Includes a Status Line (Version, Status Code, Message), Headers, and a Body (Content).
+## 2. Understanding HTTP Structure
+- **Request:** Includes Method (e.g., GET), Path, Protocol Version, Headers (e.g., Host, User-Agent), and an optional Body.
+- **Response:** Includes a Status Line (Version, Status Code 200 OK), Headers (e.g., Content-Type), and a Body (e.g., HTML/JSON content).
 
 ## 3. Common HTTP Methods
-- **GET:** Retrieves data from a server (e.g., fetching a web page).
-- **POST:** Submits new data to be processed (e.g., submitting a form).
-- **PUT:** Updates an existing resource entirely.
-- **DELETE:** Removes a specific resource.
+- **GET:** Retrieves data from a server; used for fetching a web page or data from an API.
+- **POST:** Submits new data to the server to create resources.
+- **PUT:** Updates an existing resource on the server.
+- **DELETE:** Removes a specific resource from the server.
 
-## 4. Common Status Codes
-- **200 OK:** The request was successful.
-- **201 Created:** A new resource was successfully created.
-- **400 Bad Request:** The server cannot process the request due to client error.
-- **404 Not Found:** The requested resource could not be found.
-- **500 Internal Server Error:** The server encountered an unexpected condition.
+## 4. Common HTTP Status Codes
+Status codes are grouped by their first digit:
+- **1xx:** Informational.
+- **2xx:** Successful (e.g., **200 OK** means the request succeeded).
+- **3xx:** Redirection (e.g., **301 Moved Permanently**).
+- **4xx:** Client Errors (e.g., **404 Not Found** when a resource is unavailable).
+- **5xx:** Server Errors (e.g., **500 Internal Server Error**).
