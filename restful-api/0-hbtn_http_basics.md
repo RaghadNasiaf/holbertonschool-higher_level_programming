@@ -1,8 +1,21 @@
-# HTTP and HTTPS Basics
+### 0. Basics of HTTP/HTTPS
 
-* **HTTP**: Unencrypted data transfer, vulnerable to eavesdropping.
-* **HTTPS**: Encrypted using SSL/TLS, secure from tampering.
-* **Request Structure**: Method, Path, Headers, Body.
-* **Response Structure**: Status Code, Headers, Body.
-* **Methods**: GET (fetch), POST (create), PUT (update), DELETE (remove).
-* **Status Codes**: 200 (OK), 201 (Created), 404 (Not Found), 500 (Server Error).
+**1. HTTP vs HTTPS:**
+- HTTP (Hypertext Transfer Protocol) transfers data in plain text and is insecure.
+- HTTPS (HTTP Secure) uses SSL/TLS encryption to protect data from eavesdropping.
+
+**2. HTTP Structure:**
+- **Request:** Includes Method (GET, POST, etc.), Path, Headers, and Body.
+- **Response:** Includes Status Code (200, 404, etc.), Headers, and Body.
+
+**3. Common HTTP Methods:**
+- **GET:** Retrieves data from a server.
+- **POST:** Submits new data to be processed.
+- **PUT:** Updates a resource completely.
+- **DELETE:** Removes a specific resource.
+
+**4. Common Status Codes:**
+- **200 OK:** Request succeeded.
+- **201 Created:** Resource created successfully.
+- **404 Not Found:** Resource not available.
+- **500 Internal Server Error:** Server-side problem.
