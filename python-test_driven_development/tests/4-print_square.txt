@@ -1,0 +1,30 @@
+>>> print_square = __import__('4-print_square').print_square
+
+Normal case:
+>>> print_square(4)
+####
+####
+####
+####
+
+Size is 0 (Prints nothing):
+>>> print_square(0)
+
+Size is 1:
+>>> print_square(1)
+#
+
+Size is not an integer (TypeError):
+>>> print_square("10")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+Size is a negative integer (ValueError):
+>>> print_square(-1)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+Size is a negative float (TypeError per requirements):
+>>> print_square(-1.5)
+Traceback (most recent call last):
+TypeError: size must be an integer
