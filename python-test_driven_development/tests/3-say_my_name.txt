@@ -1,0 +1,24 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Normal case with both names:
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+Only first name (last name is empty string by default):
+>>> say_my_name("Bob")
+My name is Bob 
+
+First name as a number (Error):
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+Last name as a list (Error):
+>>> say_my_name("Walter", [1, 2])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+Both arguments missing:
+>>> say_my_name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
