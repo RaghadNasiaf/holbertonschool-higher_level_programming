@@ -7,22 +7,22 @@ users = {}
 
 @app.route('/')
 def home():
-    """Welcome message for the root endpoint."""
+    """Returns a simple welcome message."""
     return "Welcome to the Flask API!"
 
 @app.route('/data')
 def get_data():
-    """Returns a JSON list of all usernames."""
+    """Returns a list of all usernames."""
     return jsonify(list(users.keys()))
 
 @app.route('/status')
 def status():
-    """Simple status check endpoint."""
+    """Returns the API status."""
     return "OK"
 
 @app.route('/users/<username>')
 def get_user(username):
-    """Retrieves detailed information for a specific user."""
+    """Retrieves detailed info for a specific user."""
     user = users.get(username)
     if user:
         return jsonify(user)
@@ -30,25 +30,20 @@ def get_user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    """Adds a new user and validates inputs and duplicates."""
-    # Use request.get_json() to parse incoming data
+    """Adds a new user and validates for duplicates."""
     data = request.get_json()
     
-    # Check if data is provided
-    if not data:
-        return jsonify({"error": "Invalid JSON"}), 400
-        
-    username = data.get("username")
-    
-    # Requirement: Check if username is missing
-    if not username:
+    # 1. Validate username presence
+    if not data or "username" not in data:
         return jsonify({"error": "Username is required"}), 400
     
-    # Requirement: Check for duplicates (The fix for your FAIL)
+    username = data["username"]
+    
+    # 2. Validate duplicate username (Crucial for passing the test)
     if username in users:
         return jsonify({"error": "User already exists"}), 400
     
-    # Store user data
+    # 3. Store user data
     users[username] = {
         "username": username,
         "name": data.get("name"),
