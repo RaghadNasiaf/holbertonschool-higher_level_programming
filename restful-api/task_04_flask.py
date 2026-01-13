@@ -23,7 +23,7 @@ def status():
 
 @app.route('/users/<username>')
 def get_user(username):
-    """Retrieves full details for a specific user by their username."""
+    """Retrieves full details for a specific user."""
     user = users.get(username)
     if user:
         return jsonify(user)
@@ -32,22 +32,19 @@ def get_user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    """
-    Adds a new user. 
-    Includes a check to prevent duplicate usernames (solving the FAIL error).
-    """
+    """Adds a new user and validates for duplicates."""
     data = request.get_json()
     
-    # 1. Extract and check if username exists in the request
+    # 1. Check if username is provided
     username = data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
     
-    # 2. Check for duplicate username (The critical fix for Task 4)
+    # 2. Check for duplicate username (Critical for passing the test)
     if username in users:
         return jsonify({"error": "User already exists"}), 400
     
-    # 3. Add the user to the dictionary
+    # 3. Store the user data
     users[username] = {
         "username": username,
         "name": data.get("name"),
@@ -58,5 +55,5 @@ def add_user():
     return jsonify({"message": "User added", "user": users[username]}), 201
 
 if __name__ == "__main__":
-    # Run the Flask development server
+    # Run the server on all addresses and port 5000
     app.run(host='0.0.0.0', port=5000)
