@@ -1,17 +1,20 @@
 #!/usr/bin/python3
 """
-This module provides a function to divide all elements of a matrix.
+This module contains a function that divides all elements of a matrix.
+Each element is rounded to two decimal places.
 """
 
 
 def matrix_divided(matrix, div):
     """
-    Divides all elements of a matrix by a divisor (div).
+    Divides all elements of a matrix by div.
+
     Args:
-        matrix (list): List of lists of integers or floats.
+        matrix (list): A list of lists of integers or floats.
         div (int/float): The number to divide by.
+
     Returns:
-        A new matrix with results rounded to 2 decimal places.
+        list: A new matrix with the results.
     """
     msg = "matrix must be a matrix (list of lists) of integers/floats"
     if not isinstance(matrix, list) or len(matrix) == 0:
