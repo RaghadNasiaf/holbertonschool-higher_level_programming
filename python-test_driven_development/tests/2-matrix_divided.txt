@@ -7,10 +7,10 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
 [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+>>> matrix_divided([[1, 2], [4, 5, 6]], 2)
+Traceback (most recent call last):
+TypeError: matrix must have each row with the same size
 >>> matrix_divided()
 Traceback (most recent call last):
 TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
->>> matrix_divided([[]], 2)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
 
