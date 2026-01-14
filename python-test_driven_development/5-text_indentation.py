@@ -13,17 +13,24 @@ def text_indentation(text):
         raise TypeError("text must be a string")
 
     i = 0
-    # Skip initial spaces at the very beginning of the text
-    while i < len(text) and text[i] == ' ':
+    length = len(text)
+
+    # Skip leading spaces
+    while i < length and text[i] == ' ':
         i += 1
 
-    while i < len(text):
+    while i < length:
         print(text[i], end="")
+
         if text[i] in ".?:":
-            print("\n")
+            # Skip spaces after punctuation
             i += 1
-            # Skip all spaces following a punctuation mark
-            while i < len(text) and text[i] == ' ':
+            while i < length and text[i] == ' ':
                 i += 1
+
+            # Print new lines ONLY if there is more text to print
+            if i < length:
+                print("\n")
             continue
+
         i += 1
