@@ -1,43 +1,38 @@
 #!/usr/bin/python3
 """
-This module lists all values in the states table where name matches the argument.
-This script is safe from MySQL injections.
+This module provides a script that safely filters states by user input.
+It prevents SQL injection by using parameterized queries with MySQLdb.
 """
 import MySQLdb
 import sys
 
 
 if __name__ == "__main__":
-    # Check if all required arguments are provided
+    # Check if correct number of arguments is provided
     if len(sys.argv) >= 5:
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database = sys.argv[3]
-        state_name = sys.argv[4]
-
-        # Connect to the MySQL server
+        # Establish connection using command line arguments
         db = MySQLdb.connect(
             host="localhost",
             port=3306,
-            user=username,
-            passwd=password,
-            db=database,
+            user=sys.argv[1],
+            passwd=sys.argv[2],
+            db=sys.argv[3],
             charset="utf8"
         )
 
         # Create a cursor object for query execution
         cur = db.cursor()
 
-        # Safely execute query using parameterized input to prevent SQL injection
-        # Use a tuple (state_name,) to pass the argument safely
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-        cur.execute(query, (state_name,))
+        # Execute the query safely using the parameterized method
+        # The tuple (sys.argv[4],) ensures the input is treated as data only
+        cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC",
+                    (sys.argv[4],))
 
-        # Fetch results and print them
+        # Fetch results and print each row
         query_rows = cur.fetchall()
         for row in query_rows:
             print(row)
 
-        # Close cursor and database connection
+        # Ensure cursor and connection are closed
         cur.close()
         db.close()
