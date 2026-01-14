@@ -1,17 +1,16 @@
 #!/usr/bin/python3
 """
-This module takes in the name of a state as an argument and lists all
-cities of that state from the database hbtn_0e_4_usa.
-The script is safe from SQL injection.
+This module defines a script that lists all cities of a given state.
+It uses MySQLdb to safely query the database hbtn_0e_4_usa.
 """
 import MySQLdb
 import sys
 
 
 if __name__ == "__main__":
-    # Validate that we have all 4 required arguments
+    # Access command line arguments for database connection and search
     if len(sys.argv) >= 5:
-        # Establish connection to the MySQL server
+        # Establish a secure connection to the database
         db = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -21,25 +20,23 @@ if __name__ == "__main__":
             charset="utf8"
         )
 
-        # Create a cursor object
+        # Create a cursor object for executing SQL joins
         cur = db.cursor()
 
-        # Join cities and states to find cities belonging to the given state
-        # Safe from SQL injection using %s as a placeholder
+        # Execute query with JOIN and parameterized WHERE clause for safety
         query = "SELECT cities.name FROM cities \
                  JOIN states ON cities.state_id = states.id \
                  WHERE states.name = %s \
                  ORDER BY cities.id ASC"
-        
+
         cur.execute(query, (sys.argv[4],))
 
-        # Fetch all result rows
+        # Fetch all resulting city names and format them as a string
         rows = cur.fetchall()
-
-        # Format output: join city names with commas
-        # Example: Dallas, Houston, Austin
+        
+        # Use join to display cities separated by a comma and a space
         print(", ".join([row[0] for row in rows]))
 
-        # Clean up: close cursor and connection
+        # Close all resources
         cur.close()
         db.close()
