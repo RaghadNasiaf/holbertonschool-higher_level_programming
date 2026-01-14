@@ -12,16 +12,18 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    text = text.strip()
-    skip_space = False
+    i = 0
+    # Skip initial spaces at the very beginning of the text
+    while i < len(text) and text[i] == ' ':
+        i += 1
 
-    for i in range(len(text)):
-        if skip_space and text[i] == ' ':
-            continue
-
+    while i < len(text):
         print(text[i], end="")
-        skip_space = False
-
         if text[i] in ".?:":
             print("\n")
-            skip_space = True
+            i += 1
+            # Skip all spaces following a punctuation mark
+            while i < len(text) and text[i] == ' ':
+                i += 1
+            continue
+        i += 1
