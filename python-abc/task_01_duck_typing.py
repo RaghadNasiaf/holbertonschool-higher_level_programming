@@ -34,9 +34,9 @@ class Circle(Shape):
 
     def __init__(self, radius: float):
         """
-        Initialize the circle with a radius.
+        Initialize the circle with a radius, handling negative values.
         """
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self) -> float:
         """
@@ -58,10 +58,10 @@ class Rectangle(Shape):
 
     def __init__(self, width: float, height: float):
         """
-        Initialize the rectangle with width and height.
+        Initialize the rectangle, handling negative dimensions.
         """
-        self.width = width
-        self.height = height
+        self.width = abs(width)
+        self.height = abs(height)
 
     def area(self) -> float:
         """
@@ -80,5 +80,5 @@ def shape_info(shape):
     """
     Standalone function that prints area and perimeter using Duck Typing.
     """
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
+    print("Area: {}".format(shape.area()))
+    print("Perimeter: {}".format(shape.perimeter()))
